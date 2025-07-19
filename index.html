@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ให้กำลังใจแฟน</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top, #ffdde1, #ee9ca7);
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-shadow: 2px 2px 4px #00000040;
+      z-index: 1;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 24px;
+      animation: float 6s infinite ease-in;
+    }
+
+    @keyframes float {
+      0% {
+        bottom: -50px;
+        opacity: 0;
+        transform: translateX(0);
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        bottom: 100vh;
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>สู้ ๆ นะ 💪 เค้าเป็นกำลังใจให้นะ 💖</h1>
+
+  <script>
+    const emojis = ["❤️","💖","💘","💕","💓","💗","💞"];
+    function createEmoji() {
+      const emoji = document.createElement('div');
+      emoji.classList.add('emoji');
+      emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      emoji.style.left = Math.random() * 100 + "vw";
+      emoji.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      emoji.style.fontSize = (Math.random() * 20 + 20) + "px";
+      document.body.appendChild(emoji);
+
+      setTimeout(() => {
+        emoji.remove();
+      }, 6000);
+    }
+
+    setInterval(createEmoji, 300);
+  </script>
+</body>
+</html>
